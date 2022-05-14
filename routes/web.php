@@ -21,3 +21,4 @@ Route::get('/admin', 'App\Http\Controllers\DashboardController@connexion');
 Route::post('/admin/dashboard/home', 'App\Http\Controllers\DashboardController@dashboardHome');
 
 Route::get('/contact', 'App\Http\Controllers\WebsiteController@contact');
+Route::post('/contact', 'App\Http\Controllers\WebsiteController@postContact');
