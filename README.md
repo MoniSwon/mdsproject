@@ -7,6 +7,8 @@ http://localhost/mdsproject/public/
 
 *I can personnalize errors
 
+*To access the admin panel : mdsproject.test/admin/login
+
 *In app/Http/Kernel.php :
 
 We have middleware. I'm using web middleware which encrypt cookies, handle session, verify csfr token.
@@ -20,6 +22,7 @@ Just after this, for example :
 *SendinBlue
 *Stripe
 *Filament
+*Liwevire
 
 #What I need to do
 
