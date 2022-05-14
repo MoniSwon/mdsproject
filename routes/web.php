@@ -21,4 +21,13 @@ Route::get('/admin', 'App\Http\Controllers\DashboardController@connexion');
 Route::post('/admin/dashboard/home', 'App\Http\Controllers\DashboardController@dashboardHome');
 
 Route::get('/contact', 'App\Http\Controllers\WebsiteController@contact');
-Route::post('/contact', 'App\Http\Controllers\WebsiteController@postContact');
+Route::post('/contact', 'App\Http\Controllers\WebsiteController@postContact'); // need to set up with sendinblue
+
+//For test
+Route::get('/test-contact', function () {
+    return new App\Mail\Contact([
+        'nom' => 'Durand',
+        'email' => 'durand@chezlui.com',
+        'message' => 'Je voulais vous dire que votre site est magnifique !'
+    ]);
+});
