@@ -29,7 +29,12 @@ class AddressResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('id'),
+                Tables\Columns\TextColumn::make('number'),
+                Tables\Columns\TextColumn::make('road'),
+                Tables\Columns\TextColumn::make('zipcode'),
+                Tables\Columns\TextColumn::make('country'),
+                Tables\Columns\TextColumn::make('city'),
             ])
             ->filters([
                 //
@@ -47,8 +52,6 @@ class AddressResource extends Resource
     {
         return [
             'index' => Pages\ListAddresses::route('/'),
-            'create' => Pages\CreateAddress::route('/create'),
-            'edit' => Pages\EditAddress::route('/{record}/edit'),
         ];
     }
 }

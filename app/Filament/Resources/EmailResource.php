@@ -29,7 +29,11 @@ class EmailResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('created_at'),
+                Tables\Columns\TextColumn::make('object'),
+                Tables\Columns\TextColumn::make('from'),
+                Tables\Columns\TextColumn::make('body'),
+                Tables\Columns\TextColumn::make('type'),
             ])
             ->filters([
                 //
@@ -47,8 +51,6 @@ class EmailResource extends Resource
     {
         return [
             'index' => Pages\ListEmails::route('/'),
-            'create' => Pages\CreateEmail::route('/create'),
-            'edit' => Pages\EditEmail::route('/{record}/edit'),
         ];
     }
 }

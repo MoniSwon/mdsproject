@@ -29,7 +29,14 @@ class ReviewsResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('created_at'),
+                Tables\Columns\TextColumn::make('client_id'),
+                Tables\Columns\TextColumn::make('status'),
+                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('review'),
+                Tables\Columns\TextColumn::make('rating'),
+                Tables\Columns\TextColumn::make('product_id')
+                //We need to see the photo if there is one
             ])
             ->filters([
                 //
@@ -47,8 +54,6 @@ class ReviewsResource extends Resource
     {
         return [
             'index' => Pages\ListReviews::route('/'),
-            'create' => Pages\CreateReviews::route('/create'),
-            'edit' => Pages\EditReviews::route('/{record}/edit'),
         ];
     }
 }

@@ -29,7 +29,9 @@ class LinkOrderProductResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('order_id'),
+                Tables\Columns\TextColumn::make('product_id'),
+
             ])
             ->filters([
                 //
@@ -47,8 +49,6 @@ class LinkOrderProductResource extends Resource
     {
         return [
             'index' => Pages\ListLinkOrderProducts::route('/'),
-            'create' => Pages\CreateLinkOrderProduct::route('/create'),
-            'edit' => Pages\EditLinkOrderProduct::route('/{record}/edit'),
         ];
     }
 }

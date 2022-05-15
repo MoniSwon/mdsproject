@@ -29,7 +29,15 @@ class ShipmentsResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('id'),
+                Tables\Columns\TextColumn::make('expedition_date'),
+                Tables\Columns\TextColumn::make('created_at'),
+                Tables\Columns\TextColumn::make('updated_at'),
+                Tables\Columns\TextColumn::make('order_id'),
+                Tables\Columns\TextColumn::make('status'),
+                Tables\Columns\TextColumn::make('address_id'),
+
+
             ])
             ->filters([
                 //
@@ -47,8 +55,6 @@ class ShipmentsResource extends Resource
     {
         return [
             'index' => Pages\ListShipments::route('/'),
-            'create' => Pages\CreateShipments::route('/create'),
-            'edit' => Pages\EditShipments::route('/{record}/edit'),
         ];
     }
 }

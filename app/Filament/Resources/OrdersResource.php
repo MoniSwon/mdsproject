@@ -29,7 +29,14 @@ class OrdersResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('id'),
+                Tables\Columns\TextColumn::make('created_at'),
+                Tables\Columns\TextColumn::make('updated_at'),
+                Tables\Columns\TextColumn::make('status'),
+                Tables\Columns\TextColumn::make('total'),
+                Tables\Columns\TextColumn::make('shipped'),
+                Tables\Columns\TextColumn::make('client_id'),
+                Tables\Columns\TextColumn::make('invoice_address_id'),
             ])
             ->filters([
                 //
@@ -47,8 +54,6 @@ class OrdersResource extends Resource
     {
         return [
             'index' => Pages\ListOrders::route('/'),
-            'create' => Pages\CreateOrders::route('/create'),
-            'edit' => Pages\EditOrders::route('/{record}/edit'),
         ];
     }
 }
