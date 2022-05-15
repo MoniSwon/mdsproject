@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('review');
             $table->float('rating', 2, 1);
-            $table->string('product_id');
-            $table->string('link_to_photo');
+            $table->string('product_id')->nullable();
+            $table->string('link_to_photo')->nullable();
         });
     }
 

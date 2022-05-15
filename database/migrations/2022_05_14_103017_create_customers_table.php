@@ -21,11 +21,13 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('roles_id');
-            $table->integer('phone');
+            $table->string('phone')->nullable();
             $table->string('gender');
             $table->string('status');
-            $table->integer('address_id');
-            $table->integer('invoice_address_id');
+            $table->integer('address_id')->nullable();
+            $table->integer('invoice_address_id')->nullable();
+            $table->datetime('inactive_date')->nullable();
+            $table->string('inactive_reason')->nullable();
         });
     }
 

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->float('price', 8, 2);
             $table->integer('quantity');
             $table->integer('group_id');
-            $table->float('discount', 4, 2);
+            $table->float('discount', 4, 2)->nullable();
             $table->integer('threshold');
         });
     }
