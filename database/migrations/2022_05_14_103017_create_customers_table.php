@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
@@ -20,12 +21,15 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('roles_id');
+            $table->foreignId('roles_id')
+                ->constrained()
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
             $table->string('phone')->nullable();
             $table->string('gender');
             $table->string('status');
+            $table->date('brithdate')->nullable();
             $table->integer('address_id')->nullable();
-            $table->integer('invoice_address_id')->nullable();
             $table->datetime('inactive_date')->nullable();
             $table->string('inactive_reason')->nullable();
         });
@@ -38,6 +42,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('customers');
     }
 };

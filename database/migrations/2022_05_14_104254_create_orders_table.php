@@ -18,9 +18,9 @@ return new class extends Migration
             $table->timestamps();
             $table->string('status');
             $table->float('total', 8, 2);
-            $table->string('shipped');
-            $table->integer('client_id');
-            $table->integer('invoice_address_id');
+            $table->datetime('expedition_date')->nullable();
+            $table->integer('customer_id');
+            $table->integer('address_id');
         });
     }
 
@@ -31,6 +31,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('orders');
     }
 };

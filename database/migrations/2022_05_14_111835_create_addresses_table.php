@@ -16,12 +16,13 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('number');
+            $table->string('number')->nullable();
             $table->string('road');
             $table->string('zipcode');
             $table->string('country');
             $table->string('city');
-
+            $table->string('customer_id')->nullable();
+            $table->string('order_id')->nullable();
         });
     }
 
@@ -32,6 +33,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('addresses');
     }
 };

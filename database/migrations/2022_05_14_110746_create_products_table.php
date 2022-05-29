@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
@@ -20,7 +21,10 @@ return new class extends Migration
             $table->string('status');
             $table->float('price', 8, 2);
             $table->integer('quantity');
-            $table->integer('group_id');
+            $table->foreignId('category_id')
+            ->constrained()
+            ->onUpdate('restrict')
+            ->onDelete('restrict');
             $table->float('discount', 4, 2)->nullable();
             $table->integer('threshold');
         });
@@ -33,6 +37,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('products');
     }
 };

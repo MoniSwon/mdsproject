@@ -13,11 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('link_order_products', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('order_id');
-            $table->integer('product_id');
+            $table->foreignId('order_id')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->foreignId('product_id')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
         });
     }
 
@@ -28,6 +35,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('link_order_products');
     }
 };

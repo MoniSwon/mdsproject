@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Orders extends Model
 {
     use HasFactory;
-    protected $fillabe = ['status', 'total', 'shipped', 'client_id', 'invoice_address_id'];
+    protected $fillabe = ['status', 'total', 'customer_id', 'expedition_date', 'address_id'];
+
+    public function products()
+    {
+        return $this->belongsToMany(Products::class);
+    }
 }
